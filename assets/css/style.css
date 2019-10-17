@@ -1,11 +1,35 @@
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    color: whitesmoke
+}
 
+.container{
+    width: 800px;
+    height: 400px;
+}
 
 body {
     background-color: purple;
 }
 
 img {
-height:350px;
-width: 350px;
+height:150px;
+width: 150px;
 
+}
+
+p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: white;
+}
+#animal-view {
+    
+     column-count: 5;
+     column-gap: 2em;
+     grid-auto-rows: 4;
+     row-gap: 1em;
+   
+  
 }
