@@ -36,9 +36,16 @@ function displayAnimal() {
     console.log("success got data", data);
     showGifs(data);
 
-    
+    //dynamically created the class animalMovement on click would carry out the if/else statement. if the state is still
     $(".animalMovement").on("click", function(){
-      $(this).attr("src", data.data[0].images.original.url);
+      let state = $(this).attr("data-state");
+      if (state === "still"){
+        $(this).attr("src", data.data[0].images.original.url);
+        $(this).attr("data-state", "animate");
+      } else { 
+        $(this).attr("src", data.data[0].images.original_still.url);
+        $(this).attr("data-state", "still");
+      }
      
      console.log("I clicked image");
     
@@ -52,10 +59,15 @@ function displayAnimal() {
     $('#animal-view').empty();//this unction empties out the previous content and renders the new content
 
     for (i in giphs) {
-    $('#animal-view').append("<p> Rating: " + giphs[i].rating + "</p>") 
-      $('#animal-view').append("<img class= 'animalMovement' src= ' " + giphs[i].images.original_still.url + " '/>")
       
-     
+      let animated =  gifInfo.data[i].images.original.url
+      let still = gifInfo.data[i].images.original_still.url
+    $('#animal-view').append("<p> Rating: " + giphs[i].rating + "</p>") 
+      $('#animal-view').append("<img class= 'animalMovement' data-state='still' data-animate='test' data-still='test' src= ' " + giphs[i].images.original_still.url + " '/>")
+      
+
+      $(".animalMovement").attr("data-animate", animated);
+      $(".animalMovement").attr("data-still", still);
       };
 
    
